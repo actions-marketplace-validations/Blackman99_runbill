@@ -39,12 +39,18 @@ runbill · your-org/app · runs since 2026-09-10 (97 runs, 320 jobs)
 
 `--format md|json|csv`, `--workflow ci.yml`, `--rate macos=0.08`, `--fail-over 50` (exit 3 over budget).
 
+Roll up a whole org or user (repos ranked by cost):
+
+```bash
+runbill org your-org --days 30
+```
+
 As a GitHub Action (writes the report to the job summary):
 
 ```yaml
 permissions: { actions: read, contents: read }
 steps:
-  - uses: Blackman99/runbill@v0.1.1
+  - uses: Blackman99/runbill@v0.2.0
     with: { days: 7, fail-over: 20 }
 ```
 
